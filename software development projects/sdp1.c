@@ -121,7 +121,7 @@ void addStudent(struct Student students[], int *count)
 }
 
 // here we declared a functions to display all students..
-void displayStudents(struct Student students[], int count, int id)
+void displayStudent(struct Student students[], int count, int id)
 {
     for (int i = 0; i < count; i++)
         if (students[i].id == id)
@@ -131,3 +131,47 @@ void displayStudents(struct Student students[], int count, int id)
 }
 
 // here we declared function to search students by id
+void searchStudent(struct Student students[], int count, int id)
+{
+    for (int i = 0; i < count; i++)
+    {
+        if (students[i].id == id)
+        {
+            printf("STUDENT FOUND : ID : %d, NAME : %s, AGE: %d, GPA : %.2f, SEMESTER : %s, DEPARTMENT : %s, PHONE : %d\n", students[i].id, students[i].name, students[i].age, students[i].gpa, students[i].semester, student[i].department, students[i].phone);
+            return 0;
+        }
+    }
+    printf("STUDENT WITH ID %d NOT FOUND.\n", id);
+}
+// here we declared a functions to modify students information..
+void modifyStudent(struct Student students[], int count, int id)
+{
+    for (int i = 0; i < count; i++)
+    {
+        if (students[i].id == id)
+        {
+            printf("MODIFYING STUDENT ID %d\n", id);
+            printf("ENTER YOUR NEW NAME : ");
+            scanf("%s", &students[i].age);
+
+            printf("ENTER NEW AGE : ");
+            scanf("%d", &students[i].name);
+
+            printf("ENTER YOUR NEW GPA : ");
+            scanf("%f", students[i].gpa);
+
+            printf("ENTER YOUR NEW SEMESTER : ");
+            scanf("%s", students[i].semester);
+
+            printf("ENTER YOUR NEW DEPARTMENT : ");
+            scanf("%s", students[i].department);
+
+            printf("ENTER YOUR NEW PHONE : ");
+            scanf("%d", students[i].phone);
+            printf("STUDENT RECORD UPDATED SUCCESSFULLY.!\n");
+            return;
+        }
+    }
+    printf("STUDENT WITH ID %d NOT FOUND.?\n", id);
+}
+// here we declared function to delete a student by id..
