@@ -76,7 +76,7 @@ int main()
             printf("EXITING.....\n");
             scanf("%d", &id);
         default:
-            printf("INVALID CHOICE.! PLEASE TRY AGAIN..\n");
+            printf("INVALID CHOICE ! PLEASE TRY AGAIN..\n");
         }
     }
     return 0;
@@ -87,7 +87,7 @@ void addStudent(struct Student students[], int *count)
 {
     if (*count >= MAX)
     {
-        printf("CAN'T ADD MORE STUDENTS, BECAUSE DATABASE IS FULL..!!\n");
+        printf("CAN'T ADD MORE STUDENTS, BECAUSE DATABASE IS FULL !!\n");
         return 0;
     }
 
@@ -115,17 +115,17 @@ void addStudent(struct Student students[], int *count)
 
     students[*count] = new_student;
     (*count)++;
-    printf("STUDENT ADDED SUCCESSFULLY..!!\n");
+    printf("STUDENT ADDED SUCCESSFULLY !!\n");
 }
 
 // here we declared a functions to display all students..
-void displayStudent(struct Student students[], int count, int id)
+void displayStudents(struct Student students[], int count)
 {
+    printf("\n**** STUDENT RECORD****\n");
     for (int i = 0; i < count; i++)
-        if (students[i].id == id)
-        {
-            printf("STUDENT FOUND : ID : %d, NAME : %s, AGE: %d, GPA : %.2f, SEMESTER : %s, DEPARTMENT : %s, PHONE : %d\n", students[i].id, students[i].name, students[i].age, students[i].gpa, students[i].semester, student[i].department, students[i].phone);
-        }
+    {
+        printf("STUDENT FOUND : ID : %d, NAME : %s, AGE: %d, GPA : %.2f, SEMESTER : %s, DEPARTMENT : %s, PHONE : %d\n", students[i].id, students[i].name, students[i].age, students[i].gpa, students[i].semester, students[i].department, students[i].phone);
+    }
 }
 
 // here we declared function to search students by id
@@ -135,7 +135,7 @@ void searchStudent(struct Student students[], int count, int id)
     {
         if (students[i].id == id)
         {
-            printf("STUDENT FOUND : ID : %d, NAME : %s, AGE: %d, GPA : %.2f, SEMESTER : %s, DEPARTMENT : %s, PHONE : %d\n", students[i].id, students[i].name, students[i].age, students[i].gpa, students[i].semester, student[i].department, students[i].phone);
+            printf("STUDENT FOUND : ID : %d, NAME : %s, AGE: %d, GPA : %.2f, SEMESTER : %s, DEPARTMENT : %s, PHONE : %d\n", students[i].id, students[i].name, students[i].age, students[i].gpa, students[i].semester, students[i].department, students[i].phone);
             return;
         }
     }
@@ -166,14 +166,14 @@ void modifyStudent(struct Student students[], int count, int id)
 
             printf("ENTER YOUR NEW PHONE : ");
             scanf("%d", students[i].phone);
-            printf("STUDENT RECORD UPDATED SUCCESSFULLY.!\n");
+            printf("STUDENT RECORD UPDATED SUCCESSFULLY !\n");
             return;
         }
     }
-    printf("STUDENT WITH ID %d NOT FOUND.?\n", id);
+    printf("STUDENT WITH ID %d NOT FOUND.\n", id);
 }
 // here we declared function to delete a student by id..
-void deleteStudents(struct Student students[], int *count, int id)
+void deleteStudent(struct Student students[], int *count, int id)
 {
     for (int i = 0; i < *count; i++)
     {
@@ -181,9 +181,11 @@ void deleteStudents(struct Student students[], int *count, int id)
         {
             for (int j = i; j < *count - 1; j++)
             {
-                (*count)--;
-                printf("STUDENT WITH ID %d DELETED SUCCESSFULLY.!\n", id);
+                students[j] = students[j + 1];
             }
+            (*count)--;
+            printf("STUDENT WITH ID %d DELETED SUCCESSFULLY !\n", id);
+            return;
         }
     }
     printf("STUDENT WITH ID %d NOT FOUND.\n", id);
