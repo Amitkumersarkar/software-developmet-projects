@@ -175,3 +175,18 @@ void modifyStudent(struct Student students[], int count, int id)
     printf("STUDENT WITH ID %d NOT FOUND.?\n", id);
 }
 // here we declared function to delete a student by id..
+void deleteStudent(struct Student students[], int *count, int id)
+{
+    for (int i = 0; i < *count; i++)
+    {
+        if (students[i].id == id)
+        {
+            for (int j = i; j < *count - 1; j++)
+            {
+                (*count)--;
+                printf("STUDENT WITH ID %d DELETED SUCCESSFULLY.!\n", id);
+            }
+        }
+    }
+    printf("STUDENT WITH ID %d NOT FOUND.\n", id);
+}
