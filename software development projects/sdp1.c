@@ -107,11 +107,27 @@ void addStudent(struct Student students[], int *count)
     scanf("%f", &new_student.gpa);
 
     printf("ENTER YOUR SEMESTER : ");
-    scanf("%f", &new_student.semester);
+    scanf("%s", &new_student.semester);
 
     printf("ENTER YOUR DEPARTMENT : ");
-    scanf("%f", &new_student.department);
+    scanf("%s", &new_student.department);
 
     printf("ENTER YOUR PHONE NUMBER: ");
-    scanf("%f", &new_student.phone);
+    scanf("%d", &new_student.phone);
+
+    students[*count] = new_student;
+    (*count)++;
+    printf("STUDENT ADDED SUCCESSFULLY..!!\n");
 }
+
+// here we declared a functions to display all students..
+void displayStudents(struct Student students[], int count, int id)
+{
+    for (int i = 0; i < count; i++)
+        if (students[i].id == id)
+        {
+            printf("STUDENT FOUND : ID : %d, NAME : %s, AGE: %d, GPA : %.2f, SEMESTER : %s, DEPARTMENT : %s, PHONE : %d\n", students[i].id, students[i].name, students[i].age, students[i].gpa, students[i].semester, student[i].department, students[i].phone);
+        }
+}
+
+// here we declared function to search students by id
