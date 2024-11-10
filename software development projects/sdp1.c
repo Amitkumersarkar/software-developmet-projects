@@ -9,7 +9,6 @@ using c program created by A.S ID-22235103283 Int-51..!
 #include <string.h>
 // here we define data structure and constant..
 #define MAX 100
-
 // here we define structure and name..
 struct Student
 {
@@ -39,7 +38,7 @@ int main()
     int choice, id;
     while (1)
     {
-        printf("\n*****STUDENTS RECORD MANAGEMENT SYSTEM PROJECTS****\n");
+        printf("\n------STUDENTS RECORD MANAGEMENT SYSTEM PROJECTS------\n");
         printf("1. ADD STUDENT\n");
         printf("2. DISPLAY STUDENTS\n");
         printf("3. SEARCH STUDENT\n");
@@ -73,10 +72,10 @@ int main()
             deleteStudent(students, &count, id);
             break;
         case 6:
-            printf("EXITING.....\n");
+            printf("EXITING\n");
             scanf("%d", &id);
         default:
-            printf("INVALID CHOICE ! PLEASE TRY AGAIN..\n");
+            printf("INVALID CHOICE PLEASE TRY AGAIN\n");
         }
     }
     return 0;
@@ -87,7 +86,7 @@ void addStudent(struct Student students[], int *count)
 {
     if (*count >= MAX)
     {
-        printf("CAN'T ADD MORE STUDENTS, BECAUSE DATABASE IS FULL\n");
+        printf("CANNOT ADD MORE STUDENTS, BECAUSE DATABASE IS FULL\n");
         return 0;
     }
 
@@ -121,7 +120,7 @@ void addStudent(struct Student students[], int *count)
 // here we declared a functions to display all students..
 void displayStudents(struct Student students[], int count)
 {
-    printf("\n**** STUDENT RECORD****\n");
+    printf("\n----- STUDENT RECORD-----\n");
     for (int i = 0; i < count; i++)
     {
         printf("STUDENT FOUND : ID : %d, NAME : %s, AGE: %d, GPA : %.2f, SEMESTER : %s, DEPARTMENT : %s, PHONE : %d\n", students[i].id, students[i].name, students[i].age, students[i].gpa, students[i].semester, students[i].department, students[i].phone);
@@ -139,7 +138,7 @@ void searchStudent(struct Student students[], int count, int id)
             return;
         }
     }
-    printf("STUDENT WITH ID %d NOT FOUND.\n", id);
+    printf("STUDENT WITH ID %d NOT FOUND\n", id);
 }
 // here we declared a functions to modify students information..
 void modifyStudent(struct Student students[], int count, int id)
@@ -170,7 +169,7 @@ void modifyStudent(struct Student students[], int count, int id)
             return;
         }
     }
-    printf("STUDENT WITH ID %d NOT FOUND.\n", id);
+    printf("STUDENT WITH ID %d NOT FOUND\n", id);
 }
 // here we declared function to delete a student by id..
 void deleteStudent(struct Student students[], int *count, int id)
@@ -188,5 +187,5 @@ void deleteStudent(struct Student students[], int *count, int id)
             return;
         }
     }
-    printf("STUDENT WITH ID %d NOT FOUND.\n", id);
+    printf("STUDENT WITH ID %d NOT FOUND\n", id);
 }
