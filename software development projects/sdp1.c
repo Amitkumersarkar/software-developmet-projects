@@ -1,10 +1,10 @@
 /*
 Student Record Management system project
-using c program created by Amit.Sarkar ID-22235103283 Int-51..!
+using c program created by A.S ID-22235103283 Int-51..!
 */
 // here we define important libraries to include..
 #include <stdio.h>
-// #include <stdbool.h>
+#include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
 // here we define data structure and constant..
@@ -87,7 +87,7 @@ void addStudent(struct Student students[], int *count)
 {
     if (*count >= MAX)
     {
-        printf("CAN'T ADD MORE STUDENTS, BECAUSE DATABASE IS FULL !!\n");
+        printf("CAN'T ADD MORE STUDENTS, BECAUSE DATABASE IS FULL\n");
         return 0;
     }
 
@@ -115,7 +115,7 @@ void addStudent(struct Student students[], int *count)
 
     students[*count] = new_student;
     (*count)++;
-    printf("STUDENT ADDED SUCCESSFULLY !!\n");
+    printf("STUDENT ADDED SUCCESSFULLY\n");
 }
 
 // here we declared a functions to display all students..
@@ -166,7 +166,7 @@ void modifyStudent(struct Student students[], int count, int id)
 
             printf("ENTER YOUR NEW PHONE : ");
             scanf("%d", students[i].phone);
-            printf("STUDENT RECORD UPDATED SUCCESSFULLY !\n");
+            printf("STUDENT RECORD UPDATED SUCCESSFULLY\n");
             return;
         }
     }
@@ -184,7 +184,7 @@ void deleteStudent(struct Student students[], int *count, int id)
                 students[j] = students[j + 1];
             }
             (*count)--;
-            printf("STUDENT WITH ID %d DELETED SUCCESSFULLY !\n", id);
+            printf("STUDENT WITH ID %d DELETED SUCCESSFULLY\n", id);
             return;
         }
     }
