@@ -1,11 +1,10 @@
 /*
 Student Record Management system project
-using c program created by A.S ID-22235103283 Int-51..!
+using c program created by Amit.Sarkar ID-22235103283 Int-51..!
 */
 // here we define important libraries to include..
 #include <stdio.h>
-#include <math.h>
-#include <stdbool.h>
+// #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
 // here we define data structure and constant..
@@ -25,18 +24,17 @@ struct Student
 
 // here we declared functions..
 
-void addStudent(struct Student Students[], int *count);
-void displayStudents(struct Student Students[], int count);
-void searchStudent(struct Student Students[], int count, id);
-void modifyStudent(struct Student Students[], int count, int id);
-void deleteStudent(struct Student Students[], int *count);
-// void exitStudents(struct Student Students[], int *count, int id);
+void addStudent(struct Student students[], int *count);
+void displayStudents(struct Student students[], int count);
+void searchStudent(struct Student students[], int count, int id);
+void modifyStudent(struct Student students[], int count, int id);
+void deleteStudent(struct Student students[], int *count, int id);
 
 // here we declared main functions..
 
 int main()
 {
-    struct Student students[max];
+    struct Student students[MAX];
     int count = 0;
     int choice, id;
     while (1)
@@ -138,7 +136,7 @@ void searchStudent(struct Student students[], int count, int id)
         if (students[i].id == id)
         {
             printf("STUDENT FOUND : ID : %d, NAME : %s, AGE: %d, GPA : %.2f, SEMESTER : %s, DEPARTMENT : %s, PHONE : %d\n", students[i].id, students[i].name, students[i].age, students[i].gpa, students[i].semester, student[i].department, students[i].phone);
-            return 0;
+            return;
         }
     }
     printf("STUDENT WITH ID %d NOT FOUND.\n", id);
@@ -175,7 +173,7 @@ void modifyStudent(struct Student students[], int count, int id)
     printf("STUDENT WITH ID %d NOT FOUND.?\n", id);
 }
 // here we declared function to delete a student by id..
-void deleteStudent(struct Student students[], int *count, int id)
+void deleteStudents(struct Student students[], int *count, int id)
 {
     for (int i = 0; i < *count; i++)
     {
